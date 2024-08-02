@@ -12,6 +12,7 @@ const Nav = () => {
                 <NavLink to='/services'>Services</NavLink>
                 <NavLink to='/blog'>Blog</NavLink>
                 <NavLink to='/contact'>Contact</NavLink>
+                <NavLink to='/register'>Register</NavLink>
 
             </ul>  
             <div className='flex items-center space-x-3'>
