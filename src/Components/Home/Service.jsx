@@ -1,4 +1,5 @@
 import { BiArrowBack } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Service = ({service}) => {
     const {_id, img, title, price} = service;
@@ -10,7 +11,9 @@ const Service = ({service}) => {
             <h2 className="text-2xl font-semibold">{title}</h2>
             <div className="flex items-center justify-between">
                 <h3 className="text-xl text-red-500">Price : ${price}</h3>
+                <Link to={`/checkout/${_id}`}>
                 <BiArrowBack className="rotate-180 hover:-rotate-180 duration-500 text-xl cursor-pointer hover:text-red-500"/>
+                </Link>
             </div>
                         
         </div>

@@ -1,8 +1,13 @@
-import { useLoaderData } from "react-router-dom";
 import Service from "./Service";
+import { useEffect, useState } from "react";
 
 const Services = () => {
-    const services = useLoaderData()
+    const [services, setServices] = useState([])
+    useEffect(()=>{
+        fetch('http://localhost:5000/services')
+        .then(res => res.json())
+        .then(data => setServices(data))
+    },[])
     return (
         <div>
             <div className="text-center px-3 space-y-4">
