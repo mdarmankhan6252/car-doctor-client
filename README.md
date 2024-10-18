@@ -1,8 +1,10 @@
-# React + Vite
+# Card Doctor Client Side.
+- Live-link(fornt-end) : https://cardoctor-5e0f1.web.app  |  https://cardoctor-5e0f1.firebaseapp.com
+- Live-link(backend) : https://car-doctor-server-two-taupe.vercel.app
+  
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Github-backend: https://github.com/mdarmankhan6252/car-doctor-server
 
-Currently, two official plugins are available:
+  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
