@@ -10,5 +10,14 @@
 
 ![deme-front-end](https://i.ibb.co.com/V9C2v7D/Desktop-1-1.jpg)
 
-  
+---
+### Technology is used:
+- React
+- Express.js
+- Node.js
+- Mongodb
+- Tailwind css
+- Json web token | JWT Authentication
+- Firebase
 
+### Thanks 💖
