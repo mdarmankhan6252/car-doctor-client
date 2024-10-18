@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+a.active{
+   border-bottom: 2px solid #ff3811 ;
+   color: #ff3811;
+}
+.btn_1{
+   border: 2px solid #ff3811;
+   color: #ff3811;
+   font-weight: 600;
+   padding: 10px 28px;
+   display: inline-block;
+   border-radius: 8px;
+   transition: 0.3s;
+}
+.btn_2{
+   color: #fff;
+   border: 2px solid #fff;
+   transition: 0.4s;
+}
+.btn_2:hover{
+   border: 2px solid #ff3811;
+   background:#ff3811;
+}
+.btn_1:hover{
+   background:#ff3811;
+   color: #fff;
+}
+.btn_3{
+   background:#ff3811;
+   color: #fff;
+}
+.btn_3:hover{
+   background: #f72f07;
+}
+.click_path{
+   clip-path: polygon(10% 0, 90% 0%, 100% 100%, 0% 100%);
+}
