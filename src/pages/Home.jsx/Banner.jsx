@@ -80,8 +80,8 @@ const Banner = () => {
           <div className="ease-linear duration-500 flex transform-gpu" style={{ transform: `translateX(-${currentSlider * 100}%)`}}>
             {/* sliders */}
             {carouselData.map((slide, idx) => (
-              <div key={idx} className="min-w-full h-60 bg-black/20 sm:h-96 md:h-[540px] relative ">
-                <img src={slide.img} className="w-full h-full object-cover rounded-xl" alt={`Slider - ${idx + 1}`} />
+              <div key={idx} className="min-w-full h-60 bg-black/20 sm:h-96 md:h-[540px] relative">
+                <img src={slide.img} className="w-full h-full object-cover" alt={`Slider - ${idx + 1}`} />
                 {/* Title, Text, and Button */}
                 <div className="absolute inset-0 flex flex-col justify-center items-center bg-black/40 text-white text-center p-4">
                   <h2 className="text-2xl md:text-4xl font-bold mb-2">{slide.title}</h2>
