@@ -1,22 +1,24 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+
+import axios from "axios";
 
 const MyCheckouts = () => {
 
    const { user } = useContext(AuthContext)
    const [checkouts, setCheckouts] = useState([])
-   const AxiosSecure = useAxiosSecure()
+   // const AxiosSecure = useAxiosSecure()
 
-   const url = `/checkouts?email=${user?.email}`
+   // const url = `/checkouts?email=${user?.email}`
+   
 
-   useEffect(() => {
-      AxiosSecure.get(url)
-      .then(res =>{
+   useEffect(() =>{
+      axios.get('http://localhost:5000/checkouts', {withCredentials : true})
+      .then(res => {
          setCheckouts(res.data)
       })
-   }, [url, AxiosSecure])
+   },[])
 
 
 

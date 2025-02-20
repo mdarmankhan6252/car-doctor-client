@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 import axios from 'axios';
 
 
@@ -12,40 +13,28 @@ const Login = () => {
    const navigate = useNavigate()
    const { loginUser, googleSignIn } = useContext(AuthContext)
    const location = useLocation();
-   // console.log(location);
+   console.log(location.state);
 
 
-   const handleLoginUser = e => {
+   const handleLoginUser = async e => {
       e.preventDefault()
       const form = e.target;
       const email = form.email.value;
       const password = form.password.value;
-      loginUser(email, password)
-         .then(() => {
-           
-            const user = {email}
-            axios.post('http://localhost:5000/jwt', user,{
-               withCredentials:true
-            })
-            .then(res =>{
-               // console.log(res.data);
-               if(res.data.success){
-                  navigate(location?.state ? location?.state : '/' )
-               }
-            })
-            
+      try {
+         await loginUser(email, password)
 
-            Swal.fire({
-               icon: "success",
-               title: "Welcome",
-               showConfirmButton: false,
-               timer: 1500
-            });
-         })
-         .then(() => {
-            // console.log(err);
-         })
+         const res = await axios.post('http://localhost:5000/jwt', { email }, { withCredentials: true })
 
+         console.log(res.data);
+         if (res.data.success) {
+            toast.success('Sign In Successful!')
+            navigate('/')
+         }
+
+      } catch (error) {
+         toast.error(error.message || 'Something went wrong.')
+      }
    }
 
    const handleGoogleLogin = () => {

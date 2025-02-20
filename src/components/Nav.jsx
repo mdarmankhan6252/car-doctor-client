@@ -16,19 +16,18 @@ const Nav = () => {
             <NavLink to='/services'>Services</NavLink>
             <NavLink to='/blog'>Blog</NavLink>
             <NavLink to='/contact'>Contact</NavLink>
-            {user ? <>
+            {user && <>
             <NavLink to='/myCheckout'>My Checkout</NavLink>
             
             <span onClick={() => logOut()} className='bg-[#FF3811] text-white px-2 py-1 rounded-md cursor-pointer'>LogOut</span>
-            </> :
-            <NavLink to='/register'>Register</NavLink>
+            </>
             }
          </ul>
-         <div className='flex items-center space-x-6'>
+         <Link to='/login' className='flex items-center space-x-6'>
             <CiShoppingCart className='text-3xl' />
             <CiSearch className='text-3xl' />
-            <button className='btn_1'>Sign Up</button>
-         </div>
+            <button className='btn_1'>Sign In</button>
+         </Link>
       </nav>
    );
 };

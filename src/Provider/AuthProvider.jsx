@@ -47,13 +47,13 @@ const AuthProvider = ({children}) => {
          setLoading(false)
 
          //if user exists then issue a token
-         if(currentUser){
-            const loggedInUser = {email : currentUser.email}
-            axios.post('http://localhost:5000/jwt',loggedInUser , {withCredentials:true})
-            .then(res =>{
-               console.log('token response', res.data);
-            })
-         }
+         // if(currentUser){
+         //    const loggedInUser = {email : currentUser.email}
+         //    axios.post('http://localhost:5000/jwt',loggedInUser , {withCredentials:true})
+         //    .then(res =>{
+         //       console.log('token response', res.data);
+         //    })
+         // }
          
       })
       return(() =>{
