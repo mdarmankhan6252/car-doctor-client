@@ -18,7 +18,7 @@ const Nav = () => {
             <NavLink to='/contact'>Contact</NavLink>
             {user ? <>
             <NavLink to='/myCheckout'>My Checkout</NavLink>
-            <Link to='/userProfile' className='text-[#FF3811] border-2 border-[#ff3811] rounded-md px-1'>{user?.displayName}</Link>
+            
             <span onClick={() => logOut()} className='bg-[#FF3811] text-white px-2 py-1 rounded-md cursor-pointer'>LogOut</span>
             </> :
             <NavLink to='/register'>Register</NavLink>
@@ -27,7 +27,7 @@ const Nav = () => {
          <div className='flex items-center space-x-6'>
             <CiShoppingCart className='text-3xl' />
             <CiSearch className='text-3xl' />
-            <button className='btn_1'>Appointment</button>
+            <button className='btn_1'>Sign Up</button>
          </div>
       </nav>
    );

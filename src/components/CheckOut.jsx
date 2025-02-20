@@ -3,6 +3,8 @@ import SharedBanner from "./SharedBanner";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import toast from "react-hot-toast";
 
 const CheckOut = () => {
 
@@ -10,9 +12,12 @@ const CheckOut = () => {
    const { title, price, _id, img } = service;
    const { user } = useContext(AuthContext)
    const navigate = useNavigate()
+   const axiosPublic = useAxiosPublic();
 
-   const handleCheckOutService = e => {
-      
+   console.log(service);
+
+   const handleCheckOutService = async e => {
+
       e.preventDefault()
       const form = e.target;
       const name = form.name.value;
@@ -31,26 +36,22 @@ const CheckOut = () => {
          service: _id,
       }
 
-      fetch('http://localhost:5000/checkouts', {
-         method:'POST', 
-         headers:{
-            'content-type' : 'application/json'
-         },
-         body : JSON.stringify(checkout)
-      })
-         .then(res => res.json())
-         .then(data => {
-            if (data.insertedId) {
-               Swal.fire({
-                  icon: "success",
-                  title: "You have ordered successfully!",
-                  showConfirmButton: false,
-                  timer: 1500
-               });
-               form.reset()
-               navigate('/myCheckout')
-            }
-         })
+      try {
+         const res = await axiosPublic.post('/checkouts', checkout)
+         if (res.data.insertedId) {
+            Swal.fire({
+               icon: "success",
+               title: "You have ordered successfully!",
+               showConfirmButton: false,
+               timer: 1500
+            });
+            form.reset()
+            navigate('/myCheckout')
+         }
+      } catch (error) {
+         toast.error(error.message || 'Something went wrong!')
+
+      }
 
    }
    return (
